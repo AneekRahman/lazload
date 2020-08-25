@@ -50,7 +50,7 @@ And then use it like this:
 
 ```
 <img class="laz" data-src='...'>
-<video class="laz" data-src='...'>
+<video class="laz" data-src='...'></video>
 ```
 
 ```
@@ -67,7 +67,7 @@ And then use it like this:
 
 ```
 <img class="laz" data-src='...'>
-<video class="laz" data-src='...'>
+<video class="laz" data-src='...'></video>
 ```
 
 ```
