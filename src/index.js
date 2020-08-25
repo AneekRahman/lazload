@@ -214,4 +214,4 @@ class LazLoad {
     });
   };
 }
-// export default LazLoad;
+export default LazLoad;

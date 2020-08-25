@@ -5,6 +5,7 @@ class LazLoad {
     revealAnim = "slide-up-white",
     overlayCustomColor = "grey",
     onContentLoaded,
+    onLoadError,
   } = {}) {
     // Won't init if window undefined;
     if (!window || !document)
@@ -15,6 +16,7 @@ class LazLoad {
     this.revealAnim = revealAnim;
     this.overlayCustomColor = overlayCustomColor;
     this.onContentLoaded = onContentLoaded;
+    this.onLoadError = onLoadError;
   }
 
   static anims = {
@@ -181,9 +183,10 @@ class LazLoad {
             element.addEventListener("load", () => {
               this.performStyleAnim(this.revealAnim, element);
               if (this.onContentLoaded)
-                this.onContentLoaded(element.dataset.src);
+                this.onContentLoaded(element, element.dataset.src);
             });
             element.addEventListener("error", function () {
+              if (this.onLoadError) this.onLoadError(element);
               console.error(
                 `LazLoad: Error while loading the image: ${element.dataset.src}`
               );
@@ -195,9 +198,10 @@ class LazLoad {
             element.onloadeddata = () => {
               this.performStyleAnim(this.revealAnim, element);
               if (this.onContentLoaded)
-                this.onContentLoaded(element.dataset.src);
+                this.onContentLoaded(element, element.dataset.src);
             };
             element.onerror = () => {
+              if (this.onLoadError) this.onLoadError(element);
               console.error(
                 `LazLoad: Error while loading the video: ${element.dataset.src}`
               );
