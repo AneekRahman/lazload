@@ -1,0 +1,35 @@
+{
+  "name": "lazload",
+  "version": "1.0.0",
+  "description": "An image/video lazy loading library, which has a few cool images reveal effect after it loads the image",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AneekRahman/lazload.git"
+  },
+  "keywords": [
+    "lazy",
+    "load",
+    "loading",
+    "images",
+    "image",
+    "load",
+    "effect",
+    "reveal",
+    "transition",
+    "video"
+  ],
+  "files": [
+    "src"
+  ],
+  "author": "Muhammad Aneek Rahman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AneekRahman/lazload/issues"
+  },
+  "homepage": "https://github.com/AneekRahman/lazload#readme"
+}

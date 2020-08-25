@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        padding: 90vh 4em;
+        background-color: rgba(0, 0, 0, 0.98);
+      }
+      img,
+      video {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        margin-top: 2em;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="holder">
+      <img class="laz" data-src="../readme/img1.jpg" />
+      <video
+        class="laz"
+        data-src="https://player.vimeo.com/external/314714772.sd.mp4?s=b3d92ace8cc000fb98770b2e59ade626f98ce642&profile_id=164&oauth2_token_id=57447761"
+        autoplay
+        loop
+      ></video>
+      <img class="laz" data-src="../readme/img2.jpg" />
+      <img class="laz" data-src="../readme/img3.jpg" />
+      <img class="laz" data-src="../readme/imgw4.jpg" />
+    </div>
+
+    <script src="../src/index.js"></script>
+    <script type="module" src="./client.js"></script>
+  </body>
+</html>
