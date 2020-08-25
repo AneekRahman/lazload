@@ -17,7 +17,7 @@ This is a library which can lazy load:
 
 There are multiple premade image/video reveal animations after the image/video is loaded. More will be added soon. (Please show your support!)
 
-You can set your own animations if you want as well. Just set the `identifier: '.any-class-you-like'` and use the `onContentLoaded: function(url){}` callback to perform any action/animation on that element
+You can set your own animations if you want as well. Just set the `identifier: '.any-class-you-like'` and use the `onContentLoaded: function(element, url){}` callback to perform any action/animation on that element
 
 <p style="color: rgba(0,0,0,0.4)">Also help the development by reporting any bugs. Feel free to contribute to this project. Thanks ❤</p>
 
