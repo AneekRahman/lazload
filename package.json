@@ -1,7 +1,7 @@
 {
   "name": "lazload",
-  "version": "1.0.0",
-  "description": "An image/video lazy loading library, which has a few cool images reveal effect after it loads the image",
+  "version": "1.0.3",
+  "description": "An image/video lazy loading library, which has a few premade cool images reveal effect after it loads the image",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -31,5 +31,5 @@
   "bugs": {
     "url": "https://github.com/AneekRahman/lazload/issues"
   },
-  "homepage": "https://github.com/AneekRahman/lazload#readme"
+  "homepage": "https://aneekrahman.github.io/lazload/"
 }
