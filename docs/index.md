@@ -1,37 +1,145 @@
-## Welcome to GitHub Pages
+# lazload
 
-You can use the [editor on GitHub](https://github.com/AneekRahman/lazload/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+[![NPM Version][npm-image]][npm-url]
+[![NPM Downloads][downloads-image]][downloads-url]
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+[npm-image]: https://img.shields.io/npm/v/lazload.svg
+[npm-url]: https://npmjs.org/package/lazload
+[downloads-image]: https://img.shields.io/npm/dm/lazload.svg
+[downloads-url]: https://npmjs.org/package/lazload
 
-### Markdown
+### What is this?
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This is a library which can lazy load:
 
-```markdown
-Syntax highlighted code block
+- Images
+- Videos
 
-# Header 1
-## Header 2
-### Header 3
+There are multiple premade image/video reveal animations after the image/video is loaded. More will be added soon. (Please show your support!)
 
-- Bulleted
-- List
+You can set your own animations if you want as well. Just set the `identifier: '.any-class-you-like'` and use the `onContentLoaded: function(element, url){}` callback to perform any action/animation on that element
 
-1. Numbered
-2. List
+<p style="color: rgba(0,0,0,0.4)">Also help the development by reporting any bugs. Feel free to contribute to this project. Thanks ❤</p>
 
-**Bold** and _Italic_ and `Code` text
+### Animation Examples
 
-[Link](url) and ![Image](src)
+|   ![][fade-in]    |
+| :---------------: |
+| Fade in Animation |
+
+|   ![][white-overlay]    |   ![][custom-color]    |
+| :---------------------: | :--------------------: |
+| White Overlay Animation | Custom Colored Overlay |
+
+[fade-in]: readme/fade-in.gif "Fade in animation"
+[white-overlay]: readme/white-overlay.gif "White overlay"
+[custom-color]: readme/custom-colors.gif "Custom colors for overlay"
+
+### Benefits
+
+- Extremely lightweight: Only 7.2kB (1.9kB gzipped)
+- No dependency: It's all Pure javascript
+
+### CDN
+
+```
+<script src="https://unpkg.com/lazload/src/lazload.js">
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+And then use it like this:
 
-### Jekyll Themes
+```
+<img class="laz" data-src='...'>
+<video class="laz" data-src='...'></video>
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/AneekRahman/lazload/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```
+new LazLoad().init();
+```
 
-### Support or Contact
+### NPM Installation
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+```
+npm i lazload
+```
+
+And then use it like this:
+
+```
+<img class="laz" data-src='...'>
+<video class="laz" data-src='...'></video>
+```
+
+```
+import LazLoad from 'lazload';
+
+new LazLoad().init();
+```
+
+### Options
+
+```
+// These are the Defaults
+new LazLoad({
+  identifier: ".laz",
+  revealAnim: LazLoad.anims.SLIDE_UP_WHITE,
+  triggerRadius: 300,
+  onContentLoaded: function(element, url){}
+  onLoadError: function(element){}
+}).init();
+```
+
+- `identifier`: [string]
+  Identify which elements should be parallaxed
+- `triggerRadius`: [int] [value > 0]
+  How close to the scroll from top should the lazy loading get triggered. The higher the number, the closer it gets to being lazy loaded with scroll.
+- `revealAnim`: [LazLoad.anims.OPTION_NAME]
+  Possible values:
+  - `LazLoad.anims.NONE`
+  - `LazLoad.anims.SLIDE_UP_WHITE`
+  - `LazLoad.anims.SLIDE_UP_BLACK`
+  - `LazLoad.anims.SLIDE_UP_CUSTOM_COLOR`
+- `overlayCustomColor`: [color]
+  To use this, `revealAnim` must be `LazLoad.anims.SLIDE_UP_CUSTOM_COLOR`
+- `onContentLoaded`: [function]
+  This callback event is triggered once the lazy-loading content has finished loading
+- `onLoadError`: [function]
+  This callback event is triggered if content failed to load
+
+#### Using custom colors for sliding overlay
+
+```
+// MUST! revealAnim: LazLoad.anims.SLIDE_UP_CUSTOM_COLOR
+new LazLoad({
+  revealAnim: LazLoad.anims.SLIDE_UP_CUSTOM_COLOR,
+  overlayCustomColor: "rgb(255, 123, 100)",
+}).init();
+```
+
+#### Callback Examples
+
+```
+new LazLoad({
+  onContentLoaded: (element, url) => {
+    console.log("Im loaded: " + url);
+    element.style.transform = "rotate(30deg)"; // Any animation you want to perform
+  },
+}).init();
+```
+
+```
+new LazLoad({
+  onLoadError: (element) => {
+    console.log("Error loading: " + element.src);
+  },
+}).init();
+```
+
+### Achieve the shown examples gifs effects
+
+```
+/* Use this for the images you want to parallax */
+.parallax-element{
+  object-fit: cover; // Fixes image ratio
+}
+```
