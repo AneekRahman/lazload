@@ -31,9 +31,9 @@ You can set your own animations if you want as well. Just set the `identifier: '
 | :---------------------: | :--------------------: |
 | White Overlay Animation | Custom Colored Overlay |
 
-[fade-in]: readme/fade-in.gif "Fade in animation"
-[white-overlay]: readme/white-overlay.gif "White overlay"
-[custom-color]: readme/custom-colors.gif "Custom colors for overlay"
+[fade-in]: https://github.com/AneekRahman/lazload/blob/master/readme/fade-in.gif "Fade in animation"
+[white-overlay]: https://github.com/AneekRahman/lazload/blob/master/readme/white-overlay.gif "White overlay"
+[custom-color]: https://github.com/AneekRahman/lazload/blob/master/readme/custom-colors.gif "Custom colors for overlay"
 
 ### Benefits
 
