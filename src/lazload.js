@@ -170,12 +170,6 @@ class LazLoad {
       elements.forEach((element, index) => {
         const offsetTop = this.getOffset(elements[0]).top;
         if (offsetTop < scrolled + this.triggerRadius) {
-          // Remove the class if the indentifier is a class
-          if (this.identifier.charAt(0) === ".")
-            element.classList.remove(this.identifier.slice(1));
-          // Remove the id if the indentifier is a id
-          if (this.identifier.charAt(0) === "#") element.removeAttribute("id");
-
           if (element.tagName.toUpperCase() == "IMG") {
             // The element is an image
             // Set the src and load the image

@@ -8,7 +8,7 @@
 [downloads-image]: https://img.shields.io/npm/dm/lazload.svg
 [downloads-url]: https://npmjs.org/package/lazload
 
-### What is this?
+# What is this?
 
 This is a library which can lazy load:
 
@@ -21,29 +21,25 @@ You can set your own animations if you want as well. Just set the `identifier: '
 
 <p style="color: rgba(0,0,0,0.4)">Also help the development by reporting any bugs. Feel free to contribute to this project. Thanks ❤</p>
 
-### Animation Examples
+# Animation Examples
 
-|   ![][fade-in]    |
-| :---------------: |
-| Fade in Animation |
+| ![][fade-in] | ![][white-overlay] |
+| :----------: | :----------------: |
+|   Fade in    |   White Overlay    |
 
-|   ![][white-overlay]    |   ![][custom-color]    |
-| :---------------------: | :--------------------: |
-| White Overlay Animation | Custom Colored Overlay |
+[fade-in]: docs/fade-in.gif "Fade in animation"
+[white-overlay]: docs/white-overlay.gif "White overlay"
 
-[fade-in]: readme/fade-in.gif "Fade in animation"
-[white-overlay]: readme/white-overlay.gif "White overlay"
-[custom-color]: readme/custom-colors.gif "Custom colors for overlay"
+## Benefits
 
-### Benefits
-
+- Fast CSS3 animation which uses the GPU
 - Extremely lightweight: Only 7.2kB (1.9kB gzipped)
 - No dependency: It's all Pure javascript
 
-### CDN
+# CDN
 
 ```
-<script src="https://unpkg.com/lazload/src/lazload.js">
+<script src="https://unpkg.com/lazload@1.0.4/src/lazload.js">
 ```
 
 And then use it like this:
@@ -54,10 +50,10 @@ And then use it like this:
 ```
 
 ```
-new LazLoad().init();
+LazLoad().init();
 ```
 
-### NPM Installation
+# NPM Installation
 
 ```
 npm i lazload
@@ -73,10 +69,29 @@ And then use it like this:
 ```
 import LazLoad from 'lazload';
 
-new LazLoad().init();
+LazLoad().init();
 ```
 
-### Options
+# Callback Examples
+
+```
+new LazLoad({
+  onContentLoaded: (element, url) => {
+    console.log("Im loaded: " + url);
+    element.style.transform = "rotate(30deg)"; // Any animation you want to perform
+  },
+}).init();
+```
+
+```
+new LazLoad({
+  onLoadError: (element) => {
+    console.log("Error loading: " + element.src);
+  },
+}).init();
+```
+
+# Options
 
 ```
 // These are the Defaults
@@ -106,7 +121,7 @@ new LazLoad({
 - `onLoadError`: [function]
   This callback event is triggered if content failed to load
 
-#### Using custom colors for sliding overlay
+# Using custom colors for sliding overlay
 
 ```
 // MUST! revealAnim: LazLoad.anims.SLIDE_UP_CUSTOM_COLOR
@@ -116,26 +131,7 @@ new LazLoad({
 }).init();
 ```
 
-#### Callback Examples
-
-```
-new LazLoad({
-  onContentLoaded: (element, url) => {
-    console.log("Im loaded: " + url);
-    element.style.transform = "rotate(30deg)"; // Any animation you want to perform
-  },
-}).init();
-```
-
-```
-new LazLoad({
-  onLoadError: (element) => {
-    console.log("Error loading: " + element.src);
-  },
-}).init();
-```
-
-### Achieve the shown examples gifs effects
+# Achieve the shown examples gifs effects
 
 ```
 /* Use this for the images you want to parallax */
